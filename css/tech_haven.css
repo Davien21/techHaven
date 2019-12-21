@@ -1,0 +1,68 @@
+aside {
+	background-color: #282828 !important;
+	/*border-right: 1px solid #fff;*/
+	box-shadow: 0.5px 0px 1px 0.1px #000;
+	display: none;
+}
+aside nav {
+	background-color: #282828;
+}
+.haven-bg-black {
+	background-color: #282828;
+}
+#body-section {
+	width: 100vw;
+	height: 100vh;
+}
+.brand-tag {
+	text-shadow: 3px 3px 4px #000;
+	font-size: 1.3em;
+}
+.fxn-btn {
+	color: #fff;
+}
+.fxn-ul {
+}
+.fxn-ul .fxn-btn:focus  {
+}
+ul,ol {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+ @media only screen and (min-width:1200px) {
+ 	#make-shift-navbar {
+		/*margin-left: 14.5%;*/
+		border-left: 1px solid #fff;
+		box-shadow: 2px 1px 2px 1px #ff9800;
+	}
+ }
+img {
+	min-height: 200px;
+}
+.funds_output {
+	color: #4BB321;
+}
+.in_stock_span {
+	color: #4BB321;
+}
+.out_of_stock {
+	color: #FF4834;
+	font-weight: bold;
+}
+.supplier {
+	font-weight: bold;
+}
+.quantity_in_stock {
+	font-size: 0.9em;
+	color: #67D8EF;
+	font-weight: bold;
+}
+
+
+.stock_ops_div {
+	border: 2px solid ##4BB321;
+}
+.modal_item_name {
+
+}

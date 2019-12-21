@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tech Haven</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<link rel="icon" href="./imgs/logo.jpg">
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="./css/extra-responsive.css">
+		<link rel="stylesheet" type="text/css" href="./css/tech_haven.css">
+		<script src="./js/jquery-3.4.1.js"></script>
+		<!-- <script src="./js/all.min.js"></script> -->
+		<script src="./js/bootstrap.js"></script>
+		
+	</head>
+	<body>
+	<!-- 	<div id="view_stock-modal" class="modal ">
+			  <div class="modal-dialog ">
+			    <div class="modal-content rounded text-center">
+			      <header class=" ">
+			        <h2 class="flex text-red-alt w-100 p-1">
+			        	<span class="mx-auto pl-4 modal_item_name">Current Stock:</span>
+			        	<a href="#" class="closebtn pr-2">×</a></h2>
+			      </header>
+			      <div class="px-2 pt-2 ">
+			      	<ul class="list-group cart-list rounded">
+			      		<li class="empty-cart-alert pb-3">Your Shopping Cart is Empty!</li>
+			      	</ul>
+			      </div>
+			      <footer class="px-2 pb-4 relative">
+			        <button class="btn-block card-box py-2 mb-3 border-0 rounded-bottom modal-buy-btn">Buy Now</button>
+			        <button class="btn-outline-danger border-0" id="empty-cart">Empty cart</button>
+			      </footer>
+			    </div>
+			  </div>
+			</div> -->
+			<div class="modal" tabindex="-1" role="dialog" id="view-stock-modal">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title">Stock Item name</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			        <p>Work in progress...</p>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-primary">Amount sold</button>
+			        <button type="button" class="btn btn-secondary" >Amount bought</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		<section id="nav-section">
+			<nav class="row fixed-top haven-bg-black" id="make-shift-navbar" >
+				<div class="offset-md- container-fluid">
+					<div class="row text-center py-1 ">
+						<div class="col-md-3 col-lg-2 pt-1 ">
+							<a href="#" class="font-italic brand-tag">
+								<span class="text-orange d-inline-block " style="color: #84D 524;">Gadget</span>
+								<span class="text- white " style="color: #84D524;">Valley</span>
+							</a>
+						</div>
+						<div class="offset-md-1 col-md-4 brand-tag pt-2" style="font-size: 1.05em;">
+							<span class="no-text-shadow text-white">Stock Management App</span>
+						</div>
+						<div class="mx-auto mr-lg-5 ml-md-5 ml-lg-auto col-sm col-md-1 brand-tag text-white" style="font-size: 1.05em;">
+							<a class="btn mx-auto ml-md-5  ml-lg-auto  btn-outline-orange pointer">Log Out</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</section>
+		<section id="body-section" class="container-fluid">
+			<div class="row">
+				<div class="col-lg-2 d-no ne">
+				<div class="row" >
+				<aside class="bg-black co justify-content-around text-white text-center d-none d-lg-block fixed-left" style="height: 100vh;margin-top: 47.5px;">
+					<div class="container-fluid">
+						<p class="mt-4" >
+							User: <span class="d-block text-orange">Chidiebere Ekennia</span>
+						</p>
+						<ul class="list-group fxn-ul mt-3">
+							<button class="list-group-item haven-bg-black btn-outline-success ">
+								<i></i>
+								<span>Over-view</span>
+							</button>
+							<button class="list-group-item haven-bg-black pointer btn fxn-btn">
+								<i></i>
+								<span class="" >View All Stock</span>
+							</button>
+							<button class="list-group-item haven-bg-black pointer btn fxn-btn">
+								<i></i>
+								<span>Replenish Stock</span>
+							</button>
+							<button class="list-group-item haven-bg-black pointer  btn fxn-btn">
+								<i></i>
+								<span>Buy Stock</span>
+							</button>
+							<button class="list-group-item haven-bg-black pointer  btn fxn-btn">
+								<i></i>
+								<span>Sell Stock</span>
+							</button>
+							<a href="#check-funds-modal" class="list-group-item haven-bg-black pointer btn fxn-btn">
+								<i></i>
+								<span>Funds</span>
+								<span class="funds_output d-block">N6,000,000</span>
+							</a>
+						</ul>
+					</div>
+					<hr class="bg-white ">
+				</aside>
+				</div>
+			</div>
+			<div class="col-lg-10 ">
+				<main class="mt-lg-5 pt-md-0 pt-lg-2" style="margin-top: 105px;">
+				<section id="stock-section" class="d-non e">
+					<section id="products" class="pb-3">
+						<div class="row">
+							<div class="col ">
+								<div class="container-fluid card-box" id="division-1">
+									<div class="row py-2 bg-orange text-white pl-2 text-center ">
+										<span class="font-weight-bold mx-auto mx-md-0">
+											These items are in Stock
+										</span>
+									</div>
+
+									<div class="row text-center flex-wrap bg-white">
+										<div class="col-sm-6 col-md border-2 rounded-bottom px-4 px-sm-3">
+											<div class="container relative mb-4 b order mx-m">
+												<div class="row">
+													<img src="./imgs/shirt.jpg" class="img-fluid w-100">
+												</div>
+												<div class="row flex-column">
+													<div>
+														<span class="in_stock_span  font-weight-bold med-text-1">
+															In Stock
+														</span>
+													</div>
+													<p class="my-1 item-name">
+														Swags
+													</p>
+													<div class="flex-column">
+															<span class="d-block little-text">			
+																Supplier: <span class="supplier">Xerox Ltd.</span>
+															</span>
+															<span  class="">
+																Quantity in stock: <span class="quantity_in_stock">50</span>
+																<span class="cost_price d-none">2500</span>
+																<span class="selling_price d-none">4000</span>
+																<span class="min_stock d-none">10</span>
+																<span class="max_stock d-none">100</span>
+															</span>
+														</span>
+													</div>
+													<a href ="#" data-toggle="modal" data-target="#view-stock-modal" class="btn view-stock btn-blue-3 my-2 mx-auto  smaller-text">
+														<i class="fas fa-shopping-cart d-md-none d-lg-inline-flex"></i>
+														<span class="">View Stock</span>
+													</a>
+												</div>
+												<div class="row mt-1 flex-wrap ">
+														<button class="col-12 col-lg-6 btn btn-outline-orange little-text rounded_0 buy_stock_btn">
+														<i class="fas fa-plus-square"></i>
+														Buy Stock
+													</button>
+													<button class="col-12 col-lg-6  btn btn-outline-orange little-text rounded_0 sell_stock_btn">
+														<i class="fa fa-globe" ></i>
+														Sell Stock
+													</button>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-6 col-md border-2 rounded-bottom px-4 px-sm-3">
+											<div class="container relative mb-4 bord er mx-m">
+												<div class="row  py-3">
+													<img src="./imgs/laptop4.jpg" class="img-fluid w-100 px-2 py-4">
+												</div>
+												<div class="row flex-column">
+													<div>
+														<span class="in_stock_span font-weight-bold med-text-1">
+															In Stock
+														</span>
+													</div>
+													<p class="my-1 item-name">
+														Laptops
+													</p>
+													<div class="flex-column">
+															<span class="d-block little-text">			
+																Supplier: <span class="supplier">Microsoft</span>
+															</span>
+															<span  class="qty_and-prices">
+																Quantity in stock: <span class="quantity_in_stock">15</span>
+																<span class="cost_price d-none">90000</span>
+																<span class="selling_price d-none">120000</span>
+																<span class="min_stock d-none">5</span>
+																<span class="max_stock d-none">60</span>
+															</span>
+													</div>
+													<a href ="#" data-toggle="modal" data-target="#view-stock-modal" class="btn view-stock btn-blue-3 my-2 mx-auto  smaller-text">
+														<i class="fas fa-shopping-cart d-md-none d-lg-inline-flex"></i>
+														<span class="">View Stock</span>
+													</a>
+												</div>
+												<div class="row mt-1 flex-wrap">
+														<button class="col-12 col-lg-6 btn  border-0 btn-outline-orange little-text rounded_0 buy_stock_btn">
+														<i class="fas fa-plus-square"></i>
+														Buy Stock
+													</button>
+													<button class="col-12 col-lg-6  btn  border-0 btn-outline-orange little-text rounded_0 sell_stock_btn">
+														<i class="fa fa-globe" ></i>
+														Sell Stock
+													</button>
+												</div>
+											</div>
+										</div>
+											<div class="col-sm-6 col-md border-2 rounded-bottom px-4 px-sm-3">
+											<div class="container relative mb-4 bord er">
+												<div class="row  bg-light mb-4">
+													<img src="./imgs/phone10.jpg" class="img-fluid w-100 "  >
+												</div>
+												<div class="row flex-column mt-4 pt-2">
+													<div>
+														<span class="in_stock_span font-weight-bold med-text-1">
+															In Stock
+														</span>
+													</div>
+													<p class="my-1 item-name">
+														Mobile Phones
+													</p>
+													<div class="flex-column">
+															<span class="d-block little-text">			
+																Supplier: <span class="supplier">Samsung</span>
+															</span>
+															<span  class="">
+																Quantity in stock: <span class="quantity_in_stock">40</span>
+																<span class="cost_price d-none">50000</span>
+																<span class="selling_price d-none">65000</span>
+																<span class="min_stock d-none">10</span>
+																<span class="max_stock d-none">100</span>
+															</span>
+													</div>
+													<a href ="#" data-toggle="modal" data-target="#view-stock-modal" class="row view-stock btn btn-blue-3 my-2  mx-auto smaller-text">
+														<i class="fas fa-shopping-cart d-md-none d-lg-inline-flex "></i>
+														<span class="">View Stock</span>
+													</a>
+												</div>
+												<div class="row mt-1">
+														<button class="col-12 col-lg-6 btn  border-0 btn-outline-orange little-text rounded_0 buy_stock_btn">
+														<i class="fas fa-plus-square"></i>
+														Buy Stock
+													</button>
+													<button class="col-12 col-lg-6 btn  border-0 btn-outline-orange little-text rounded_0 sell_stock_btn">
+														<i class="fa fa-globe" ></i>
+														Sell Stock
+													</button>
+												</div>
+											</div>
+										</div>
+											<div class="col-sm-6 col-md border-2 rounded-bottom px-4 px-sm-3">
+											<div class="container relative mb-4 bor der">
+												<div class="row mb-4 ">
+													<img src="./imgs/camera4.jpg" class="img-fluid w-100">
+												</div>
+												<div class="row flex-column pt-2">
+													<div>
+														<span class="in_stock_span font-weight-bold med-text-1">
+															In Stock
+													</div>
+													<p class="my-1 item-name">
+														Cameras
+													</p>
+													<div class="flex-column">
+															<span class="d-block little-text">			
+																Supplier: <span class="supplier">Canon</span>
+															</span>
+															<span  class="">
+																Quantity in stock: <span class="quantity_in_stock">18</span>
+																<span class="cost_price d-none">340000</span>
+																<span class="selling_price d-none">410000</span>
+																<span class="min_stock d-none">4</span>
+																<span class="max_stock d-none">50</span>
+															</span>
+													</div>
+													<a href ="#" data-toggle="modal" data-target="#view-stock-modal" class="btn view-stock btn-blue-3 my-2  mx-auto smaller-text">
+														<i class="fas fa-shopping-cart d-md-none d-lg-inline-flex"></i>
+														<span class="">View Stock</span>
+													</a>
+												</div>
+												<div class="row mt-1">
+														<button class="col-12 col-lg-6 btn  border-0 btn-outline-orange little-text rounded_0 buy_stock_btn">
+														<i class="fas fa-plus-square"></i>
+														Buy Stock
+													</button>
+													<button class="col-12 col-lg-6 btn  border-0 btn-outline-orange little-text rounded_0 sell_stock_btn">
+														<i class="fa fa-globe" ></i>
+														Sell Stock
+													</button>
+												</div>
+											</div>
+										</div>
+											<div class="col-sm-6 col-md border-2 rounded-bottom px-4 px-sm-3">
+											<div class="container relative mb-4">
+												<div class="row  mb-md-4">
+													<img src="./imgs/VR4.jpg" class="img-fluid w-100 ">
+												</div>
+												<div class="row flex-column pt-2">
+													<div>
+														<span class="in_stock_span font-weight-bold med-text-1">
+															In Stock	
+														</span>
+													</div>
+													<p class="my-1 item-name">
+														V.R. Goggles
+													</p>
+													<div class="flex-column">
+															<span class="d-block little-text">			
+																Supplier: <span class="supplier">Gadget Valley</span>
+															</span>
+															<span  class="">
+																Quantity in stock: <span class="quantity_in_stock">25</span>
+																<span class="cost_price d-none">20000</span>
+																<span class="selling_price d-none">29000</span>
+																<span class="min_stock d-none">10</span>
+																<span class="max_stock d-none">55</span>
+
+															</span>
+													</div>
+													<a href ="#" data-toggle="modal" data-target="#view-stock-modal" class="btn view-stock btn-blue-3 my-2 w-10 mx-auto smaller-text">
+														<i class="fas fa-shopping-cart d-md-none d-lg-inline-flex"></i>
+														<span class="">View Stock</span>
+													</a>
+												</div>
+												<div class="row mt-1">
+														<button class="col-12 col-lg-6 btn  border-0 btn-outline-orange little-text rounded_0 buy_stock_btn">
+														<i class="fas fa-plus-square"></i>
+														Buy Stock
+													</button>
+													<button class="col-12 col-lg-6 btn  border-0 btn-outline-orange little-text rounded_0 sell_stock_btn">
+														<i class="fa fa-globe" ></i>
+														Sell Stock
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+							</div>
+							</div>
+						</div>
+				<hr class="bg-danger">
+				<div class="row ">
+					<div class="col">
+						<div class="container-fluid flex-column card-box" id="division-2">
+							<div class="row py-2 bg-orange text-white pl-2 text-center ">
+								<span class="font-weight-bold mx-auto mx-md-0">
+									These items are in Stock
+								</span>
+							</div>
+							<div class="row text-center flex-wrap bg-white">
+								<div class="col-sm-6 col-md border-2 rounded-bottom px-4 px-sm-3">
+									<div class="container relative mb-4 b order mx-m">
+										<div class="row pt-5">
+											<img src="./imgs/speaker.jpg" class="img-fluid w-100">
+										</div>
+										<div class="row flex-column mt-4 pt-1">
+											<div>
+												<span class="in_stock_span  font-weight-bold med-text-1">
+													In Stock
+												</span>
+											</div>
+											<p class="my-1 item-name">
+												Speakers
+											</p>
+											<div class="flex-column">
+													<span class="d-block little-text">			
+														Supplier: <span class="supplier">Beats</span>
+													</span>
+													<span  class="">
+														Quantity in stock: <span class="quantity_in_stock">25</span>
+														<span class="cost_price d-none">5000</span>
+														<span class="selling_price d-none">9000</span>
+														<span class="min_stock d-none">10</span>
+														<span class="max_stock d-none">80</span>
+													</span>
+											</div>
+											<a href ="#" data-toggle="modal" data-target="#view-stock-modal" class="btn view-stock btn-blue-3 my-2 mx-auto  smaller-text">
+												<i class="fas fa-shopping-cart d-md-none d-lg-inline-flex"></i>
+												<span class="">View Stock</span>
+											</a>
+										</div>
+										<div class="row mt-1 flex-wrap">
+												<button class="col-12 col-lg-6 btn  border-0 btn-outline-orange little-text rounded_0 buy_stock_btn">
+												<i class="fas fa-plus-square"></i>
+												Buy Stock
+											</button>
+											<button class="col-12 col-lg-6  btn  border-0 btn-outline-orange little-text rounded_0 sell_stock_btn">
+												<i class="fa fa-globe" ></i>
+												Sell Stock
+											</button>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6 col-md border-2 rounded-bottom px-4 px-sm-3">
+									<div class="container relative mb-4 bord er mx-m">
+										<div class="row  py-3">
+											<img src="./imgs/watch.png" class="img-fluid w-100 px-2 py-4">
+										</div>
+										<div class="row flex-column">
+											<div>
+												<span class="in_stock_span font-weight-bold med-text-1">
+													In Stock
+												</span>
+											</div>
+											<p class="my-1 item-name">
+												Smart Watches
+											</p>
+											<div class="flex-column">
+													<span class="d-block little-text">			
+														Supplier: <span class="supplier">Huawei</span>
+													</span>
+													<span  class="">
+														Quantity in stock: <span class="quantity_in_stock">30</span>
+														<span class="cost_price d-none">15000</span>
+														<span class="selling_price d-none">22500</span>
+														<span class="min_stock d-none">10</span>
+														<span class="max_stock d-none">75</span>
+													</span>
+											</div>
+											<a href ="#" data-toggle="modal" data-target="#view-stock-modal" class="btn view-stock btn-blue-3 my-2 mx-auto  smaller-text">
+												<i class="fas fa-shopping-cart d-md-none d-lg-inline-flex"></i>
+												<span class="">View Stock</span>
+											</a>
+										</div>
+										<div class="row mt-1 flex-wrap">
+												<button class="col-12 col-lg-6 btn  border-0 btn-outline-orange little-text rounded_0 buy_stock_btn">
+												<i class="fas fa-plus-square"></i>
+												Buy Stock
+											</button>
+											<button class="col-12 col-lg-6 btn  border-0 btn-outline-orange little-text rounded_0 sell_stock_btn">
+												<i class="fa fa-globe" ></i>
+												Sell Stock
+											</button>
+										</div>
+									</div>
+								</div>
+									<div class="col-sm-6 col-md border-2 rounded-bottom px-4 px-sm-3">
+									<div class="container relative mb-4">
+										<div class="row bg-light mb-3 mt-5 ">
+											<img src="./imgs/tab3.webP" class="img-fluid w-100 "  >
+										</div>
+										<div class="row flex-column  ">
+											<div>
+												<span class="in_stock_span font-weight-bold med-text-1">
+													In Stock
+												</span>
+											</div>
+											<p class="my-1 item-name">
+												Mobile Tabs
+											</p>
+											<div class="flex-column">
+													<span class="d-block little-text">			
+														Supplier: <span class="supplier">Apple Inc.</span>
+													</span>
+													<span  class="">
+														Quantity in stock: <span class="quantity_in_stock">20</span>
+														<span class="cost_price d-none">70000</span>
+														<span class="selling_price d-none">90000</span>
+														<span class="min_stock d-none">7</span>
+														<span class="max_stock d-none">35</span>
+													</span>
+											</div>
+											<a href ="#" data-toggle="modal" data-target="#view-stock-modal" class="row view-stock btn btn-blue-3 my-2  mx-auto smaller-text">
+												<i class="fas fa-shopping-cart d-md-none d-lg-inline-flex "></i>
+												<span class="">View Stock</span>
+											</a>
+										</div>
+										<div class="row mt-1">
+												<button class="col-12 col-lg-6 btn  border-0 btn-outline-orange little-text rounded_0 buy_stock_btn">
+												<i class="fas fa-plus-square"></i>
+												Buy Stock
+											</button>
+											<button class="col-12 col-lg-6 btn  border-0 btn-outline-orange little-text rounded_0 sell_stock_btn">
+												<i class="fa fa-globe" ></i>
+												Sell Stock
+											</button>
+										</div>
+									</div>
+								</div>
+									<div class="col-sm-6 col-md border-2 rounded-bottom px-4 px-sm-3">
+									<div class="container relative mb-4 mt-5">
+										<div class="row mb-4 ">
+											<img src="./imgs/printer.jpg" class="img-fluid w-100">
+										</div>
+										<div class="row flex-column pt-1">
+											<div>
+												<span class="in_stock_span font-weight-bold med-text-1">
+													In Stock
+											</div>
+											<p class="my-1 item-name">
+												Printers
+											</p>
+											<div class="flex-column">
+													<span class="d-block little-text">			
+														Supplier: <span class="supplier">Hewlett-Packard</span>
+													</span>
+													<span  class="">
+														Quantity in stock: <span class="quantity_in_stock">15</span>
+														<span class="cost_price d-none">41000</span>
+														<span class="selling_price d-none">55000</span>
+														<span class="min_stock d-none">8</span>
+														<span class="max_stock d-none">70</span>
+													</span>
+											</div>
+											<a href ="#" data-toggle="modal" data-target="#view-stock-modal" class="btn view-stock btn-blue-3 my-2 mx-auto smaller-text">
+												<i class="fas fa-shopping-cart d-md-none d-lg-inline-flex"></i>
+												<span class="">View Stock</span>
+											</a>
+										</div>
+										<div class="row mt-1">
+												<button class="col-12 col-lg-6 btn  border-0 btn-outline-orange little-text rounded_0 buy_stock_btn">
+												<i class="fas fa-plus-square"></i>
+												Buy Stock
+											</button>
+											<button class="col-12 col-lg-6 btn  border-0 btn-outline-orange little-text rounded_0 sell_stock_btn">
+												<i class="fa fa-globe" ></i>
+												Sell Stock
+											</button>
+										</div>
+									</div>
+								</div>
+									<div class="col-sm-6 col-md border-2 rounded-bottom px-4 px-sm-3">
+									<div class="container relative mb-4 mt-5">
+										<div class="row  mb-md-4">
+											<img src="./imgs/books2.jpg" class="img-fluid w-100 ">
+										</div>
+										<div class="row flex-column pt-1">
+											<div>
+												<span class="in_stock_span font-weight-bold med-text-1">
+													In Stock	
+												</span>
+											</div>
+											<p class="my-1 item-name">
+												Computer Books
+											</p>
+											<div class="flex-column">
+													<span class="d-block little-text">			
+														Supplier: <span class="supplier">Gang of 4</span>
+													</span>
+													<span  class="">
+														Quantity in stock: <span class="quantity_in_stock">16</span>
+														<span class="cost_price d-none">6500</span>
+														<span class="selling_price d-none">9000</span>
+														<span class="min_stock d-none">6</span>
+														<span class="max_stock d-none">60</span>
+													</span>
+											</div>
+											<a href ="#" data-toggle="modal" data-target="#view-stock-modal" class="btn view-stock btn-blue-3 my-2 w-10 mx-auto smaller-text">
+												<i class="fas fa-shopping-cart d-md-none d-lg-inline-flex"></i>
+												<span class="">View Stock</span>
+											</a>
+										</div>
+										<div class="row mt-1">
+												<button class="col-12 col-lg-6 btn  border-0 btn-outline-orange little-text rounded-0 buy_stock_btn">
+												<i class="fas fa-plus-square"></i>
+												Buy Stock
+											</button>
+											<button class="col-12 col-lg-6 btn  border-0 btn-outline-orange little-text rounded_0 sell_stock_btn">
+												<i class="fa fa-globe" ></i>
+												Sell Stock
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</section>
+				</section>
+			</main>
+			</div>
+			</div>
+		</section>
+		<!-- <script src="./js/tech_haven.js"></script> -->
+		<script src="./js/tech_haven2.js"></script>
+	</body>
+</html>

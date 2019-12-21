@@ -1,0 +1,185 @@
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+a:hover {
+	text-decoration-line: none;
+}
+#logo {
+	position: relative;
+	top:-10px;
+	max-width: 60px;
+}
+.oo-span {
+	margin: 0;
+	padding: 0;
+	color: #E78328;
+}
+.brand-span,.brand-span:hover {
+	font-size: 100%;
+	color: #439939;
+	font-family: Copperplate Gothic;
+	font-weight: bold;
+}
+.nav-link:hover {
+	color: #FCA146 !important;
+	border-bottom-width: 70%;
+	border-bottom: 2px solid #FCA146;
+}
+#top-slider-content img{
+	/*height: 500px;*/
+	max-width: 1600px;
+	max-height: 80vh;
+}
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev {
+  display: block;
+}
+#define-zoom {
+	font-size: 1.2em;
+}
+#uber {
+
+}
+.text-links:hover {
+	transition: ease-in-out 0.25s;
+	color: #FF9800 !important;
+	text-decoration-line: none;
+	border-bottom: 1px solid #FF9800;
+	border-bottom-width: 10%;
+}
+#section-1 {
+	background: linear-gradient(45deg,rgba(253, 223, 70, 1) 15%, rgba(92, 216, 167, 1));
+}
+.carousel-item  {
+	color: #fff;
+}
+.order-zoom {
+	font-size: 2em;
+	color: #FF9800;
+	text-shadow: 1px 1px 2px #333;
+}
+#section-3 {
+	background: url(../imgs/banner-img_4.jpg) center ; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	/*filter: brightness(90%);*/
+}
+#section-3 div {
+	/*font-size: 1.3em;*/
+}
+.service {
+	color: #77B72A;
+}
+#section-4 {
+	bac
+}
+#section-5 .service-btns {
+
+}
+
+#section-5 {
+	background-color: #282828;
+}
+#section-5 a{
+	text-decoration: none;
+}
+#big-smile {
+	font-size: 5em;
+	color: #80BF39;
+}
+.text-orange-alt {
+	color: #FFDB40;
+}
+.text-green-alt {
+	color: #80BF39;
+}
+.social-media-li {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 35px;
+	height: 35px;
+	border: 1px solid black;
+	border-radius: 50%;
+}
+.social-media-li a{
+	color: #1F1E21;
+}
+.social-media-li .media-icon{
+	font-size: 115%;
+}
+
+
+#driver-signup-main {
+	height: 125vh;
+	background: linear-gradient(rgba(0, 0, 0, .35), rgba(0, 0, 0, .35)),
+	url(../imgs/drivers.jpg) center;
+	background-size: cover;
+}
+#driver-signup-section {
+
+}
+#form-div {
+	background-color: transparent;
+	/*border: 2px solid orange;*/
+}
+#driver-form {
+	border: 2px solid orange;
+	/*padding: 200px;*/
+}
+footer a {
+	color: black;
+}
+#bottom-footer a:hover {
+	transition: ease-in-out 0.25s;
+	color: #FF9800 !important;
+}
+.closebtn {
+  text-decoration: none;
+  float: right;
+  font-size: 35px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.closebtn:hover,
+.closebtn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.special-modal-body {
+	display: flex;
+  position: relative;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1rem;
+}
+
+#modal-slider {
+	/*display: none;*/
+}
+#rider-signup {
+
+}
+#rider-booking {
+
+	
+
+}
+#rider-dialog {
+	
+}
+#dialog-content {
+	border: 1px solid #dee2eb;
+	/*background-color: transparent;*/
+}
+#booking-slider_btn:target ~ #booking-div {
+	display: block;
+}
