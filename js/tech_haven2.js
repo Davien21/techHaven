@@ -1,6 +1,8 @@
 console.log("it's linked!");
 let view_stock_btn = document.querySelectorAll('a.view-stock');
-// let stock_modal = document.querySelector('.modal');
+let stock_modal = document.querySelector('.stock_modal-body');
+let modal_img = document.querySelector('.modal-img');
+let product_imgs = document.querySelectorAll('#products img');
 let modal_close_btn = document.querySelector('.closebtn')
 let stock_suppliers = document.querySelectorAll('.supplier');
 let item_quantities = document.querySelectorAll('.quantity_in_stock');
@@ -19,6 +21,10 @@ let quantity_to_sell;
 let funds_available = 6000000;
 danger_level = 2000000;
 let regularFormat = new Intl.NumberFormat();
+let main_info = document.querySelectorAll('.main-product-info span:last-child');
+let extra_info = document.querySelectorAll('.extra-product-info span:last-child');
+console.log(extra_info)
+
 let assign_items_as_stock = () => {
 	for(let i = 0;i<item_name.length;++i) {
 		let each_item = {};
@@ -27,9 +33,9 @@ let assign_items_as_stock = () => {
 		each_item.cost_price = parseInt(item_cost_price[i].innerText);
 		each_item.selling_price = parseInt(item_selling_price[i].innerText);
 		each_item.quantity_in_stock = parseInt(item_quantities[i].innerText);
+		each_item.in_stock = instock_alert[i].innerText;
 		each_item.min_stock_level = parseInt(min_stock_level[i].innerText);
 		each_item.max_stock_level = parseInt(max_stock_level[i].innerText);
-		each_item.in_stock = instock_alert[i].innerText;
 		all_stock.push(each_item);
 	}
 	all_stock.funds = funds_available;
@@ -137,13 +143,27 @@ let handle_sell_stock_clicks = ()=> {
 		}
 	} 
 }
+console.log(all_stock)
+
 let handle_view_stock_click = () => {
 	for(let i = 0;i<view_stock_btn.length;++i) {
 		let each_view_stock_btn = view_stock_btn[i];
 		each_view_stock_btn.onclick = ()=> {
-			// displayModal(modal);
+			stock_modal.classList.remove('d-none');
+			modal_img.src = product_imgs[i].src;
+			main_info[0].innerText = " "+all_stock[i].name;
+			main_info[1].innerText = " "+all_stock[i].supplier;
+			main_info[2].innerText = " N"+regularFormat.format(all_stock[i].cost_price);
+			main_info[3].innerText = " N"+regularFormat.format(all_stock[i].selling_price);
+			main_info[4].innerText = " "+all_stock[i].quantity_in_stock;
+			extra_info[0].innerText = " "+all_stock[i].in_stock;
+			extra_info[1].innerText = " "+all_stock[i].min_stock_level;
+			extra_info[2].innerText = " "+all_stock[i].max_stock_level;
 		}
 	}
+}
+modal_close_btn.onclick = () => {
+	stock_modal.classList.add('d-none');
 }
 handle_view_stock_click()
 handle_buy_stock_clicks()

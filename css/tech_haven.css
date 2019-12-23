@@ -2,10 +2,10 @@ aside {
 	background-color: #282828 !important;
 	/*border-right: 1px solid #fff;*/
 	box-shadow: 0.5px 0px 1px 0.1px #000;
-	display: none;
+	z-index: 1 !important;
 }
 aside nav {
-	background-color: #282828;
+	/*background-color: #282828;*/
 }
 .haven-bg-black {
 	background-color: #282828;
@@ -38,7 +38,7 @@ ul,ol {
 	}
  }
 img {
-	min-height: 200px;
+	height: 200px;
 }
 .funds_output {
 	color: #4BB321;
@@ -65,4 +65,53 @@ img {
 }
 .modal_item_name {
 
+}
+
+@keyframes bring_down {
+    from {top: -420px;}
+    to {top: 0px;}
+}
+@keyframes go_up {
+    from {top: 0px;}
+    to {top: -420px;}
+}
+.stock_modal-body {
+	overflow-x: hidden;
+	position: absolute;
+	z-index: 1070;
+}
+.stock_modal {
+	/*height: 65vh;*/
+	animation: bring_down 0.5s;
+}
+.stock_modal-up {
+	/*height: 65vh;*/
+	animation: go_up 0.5s;
+}
+.modal-box-shadow {
+	box-shadow: 0px 0px 15px 15px rgba(0, 0, 0, 0.2);
+}
+.modal-img {
+	width: 100%;
+}
+.closebtn {
+	cursor: pointer;
+	color: red;
+	border: 1px solid red;
+}
+.closebtn:hover {
+	background-color: red;
+	color: white;
+
+}
+.main-product-info, .extra-product-info p {
+	line-height: 1.2em;
+}
+.main-product-info p :first-child,.extra-product-info p :first-child {
+	font-family: Arial;
+	font-weight: bolder;
+}
+.main-product-info p :last-child,.extra-product-info p :last-child {
+	font-family: Courier;
+	white-space: nowrap;
 }
