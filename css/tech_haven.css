@@ -81,7 +81,8 @@ img {
 	z-index: 1070;
 }
 .stock_modal {
-	/*height: 65vh;*/
+	max-height: 70vh;
+	overflow-y: auto;
 	animation: bring_down 0.5s;
 }
 .stock_modal-up {
@@ -92,9 +93,12 @@ img {
 	box-shadow: 0px 0px 15px 15px rgba(0, 0, 0, 0.2);
 }
 .modal-img {
-	width: 100%;
+	width: 223px;
 }
 .closebtn {
+	position: absolute;
+	right: 15px;
+	top: 3px;
 	cursor: pointer;
 	color: red;
 	border: 1px solid red;
@@ -104,7 +108,15 @@ img {
 	color: white;
 
 }
-.main-product-info, .extra-product-info p {
+.main-product-info {
+	height: 200px;
+	width: 230px;
+
+}
+div .main-product-info {
+
+}
+.main-product-info p, .extra-product-info p {
 	line-height: 1.2em;
 }
 .main-product-info p :first-child,.extra-product-info p :first-child {
@@ -114,4 +126,14 @@ img {
 .main-product-info p :last-child,.extra-product-info p :last-child {
 	font-family: Courier;
 	white-space: nowrap;
+}
+div.img-div {
+	/*border-color: orange;*/
+}
+.bg-transparent {
+	background-color: transparent;
+}
+.simple-box {
+	box-shadow: 0px 0px 5px 2px #F0F0F0;
+	border: 1px solid #e1e1e1;
 }
