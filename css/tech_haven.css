@@ -1,15 +1,12 @@
 aside {
 	background-color: #282828 !important;
-	/*border-right: 1px solid #fff;*/
 	box-shadow: 0.5px 0px 1px 0.1px #000;
 	z-index: 1 !important;
 }
-aside nav {
-	/*background-color: #282828;*/
-}
+
 main {
 	margin-top: 115px;
-	overflow-x: hidden
+	overflow-x: hidden;
 }
 
 .haven-bg-black {
@@ -37,7 +34,6 @@ ul,ol {
 }
 @media only screen and (min-width:1200px) {
  	#make-shift-navbar {
-		/*margin-left: 14.5%;*/
 		border-left: 1px solid #fff;
 		box-shadow: 2px 1px 2px 1px #ff9800;
 	}
@@ -93,7 +89,6 @@ img {
 	animation: bring_down 0.5s;
 }
 .stock_modal-up {
-	/*height: 65vh;*/
 	animation: go_up 0.5s;
 }
 .modal-box-shadow {
@@ -101,7 +96,6 @@ img {
 }
 .modal-img {
 	width: 223px;
-	/*max-width: 230px;*/
 }
 .closebtn {
 	position: absolute;
@@ -120,7 +114,6 @@ img {
 	overflow-y: auto;
 	height: 200px;
 	width: 230px;
-
 }
 
 .extra-product-info {
@@ -138,6 +131,7 @@ div .main-product-info {
 }
 .main-product-info p :first-child,.extra-product-info p :first-child {
 	font-family: Arial;
+	font-size: 0.9em;
 	font-weight: bolder;
 }
 .main-product-info p :last-child,.extra-product-info p :last-child {
@@ -148,7 +142,6 @@ div.img-div {
 	/*border-color: orange;*/
 }
 div.img-div img{
-	/*border-color: orange;*/
 	/*height: auto;*/
 }
 .bg-transparent {
@@ -159,6 +152,9 @@ div.img-div img{
 	border: 1px solid #e1e1e1;
 }
 @media screen and (max-width:767px) {
+	.modal-img {
+		min-width: 100%;
+	}
  	main {
  		margin-top: 115px;
  	}
@@ -173,7 +169,3 @@ div.img-div img{
 		
 	}
 }
-/*.modal-img {
-	min-width: 223px;
-	max-width: 230px;
-}*/
