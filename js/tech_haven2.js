@@ -144,12 +144,19 @@ let handle_sell_stock_clicks = ()=> {
 	} 
 }
 console.log(all_stock)
-
+if (main_info[0].innerText.length) {
+	main_info[0].classList.add('auto-scroll');
+}
+if (main_info[1].innerText.length) {
+	main_info[1].classList.add('auto-scroll');
+}
 let handle_view_stock_click = () => {
 	for(let i = 0;i<view_stock_btn.length;++i) {
 		let each_view_stock_btn = view_stock_btn[i];
 		each_view_stock_btn.onclick = ()=> {
 			stock_modal.classList.remove('d-none');
+			document.body.style.overflowY = 'hidden';
+			stock_modal.style.display = 'hidden';
 			modal_img.src = product_imgs[i].src;
 			main_info[0].innerText = " "+all_stock[i].name;
 			main_info[1].innerText = " "+all_stock[i].supplier;

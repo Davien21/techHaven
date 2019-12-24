@@ -7,6 +7,11 @@ aside {
 aside nav {
 	/*background-color: #282828;*/
 }
+main {
+	margin-top: 115px;
+	overflow-x: hidden
+}
+
 .haven-bg-black {
 	background-color: #282828;
 }
@@ -30,13 +35,15 @@ ul,ol {
 	margin: 0;
 	padding: 0;
 }
- @media only screen and (min-width:1200px) {
+@media only screen and (min-width:1200px) {
  	#make-shift-navbar {
 		/*margin-left: 14.5%;*/
 		border-left: 1px solid #fff;
 		box-shadow: 2px 1px 2px 1px #ff9800;
 	}
  }
+
+
 img {
 	height: 200px;
 }
@@ -93,8 +100,8 @@ img {
 	box-shadow: 0px 0px 15px 15px rgba(0, 0, 0, 0.2);
 }
 .modal-img {
-	/*min-width: 223px;*/
-	max-width: 223px;
+	width: 223px;
+	/*max-width: 230px;*/
 }
 .closebtn {
 	position: absolute;
@@ -110,12 +117,21 @@ img {
 
 }
 .main-product-info {
+	overflow-y: auto;
 	height: 200px;
 	width: 230px;
 
 }
+
+.extra-product-info {
+	/*max-width: 475px;*/
+}
 div .main-product-info {
 
+}
+.auto-scroll {
+	overflow-x: auto;
+	display: block;
 }
 .main-product-info p, .extra-product-info p {
 	line-height: 1.2em;
@@ -131,6 +147,10 @@ div .main-product-info {
 div.img-div {
 	/*border-color: orange;*/
 }
+div.img-div img{
+	/*border-color: orange;*/
+	/*height: auto;*/
+}
 .bg-transparent {
 	background-color: transparent;
 }
@@ -138,3 +158,22 @@ div.img-div {
 	box-shadow: 0px 0px 5px 2px #F0F0F0;
 	border: 1px solid #e1e1e1;
 }
+@media screen and (max-width:767px) {
+ 	main {
+ 		margin-top: 115px;
+ 	}
+
+	.stock_modal {
+		max-height: 75vh;
+	}
+}
+@media screen and (min-width:768px) {
+	main {
+ 		margin-top: 50px;
+		
+	}
+}
+/*.modal-img {
+	min-width: 223px;
+	max-width: 230px;
+}*/
